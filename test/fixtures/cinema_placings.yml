@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie_detail: one
+  cinema: one
+  time: 2024-07-12 17:56:20
+
+two:
+  movie_detail: two
+  cinema: two
+  time: 2024-07-12 17:56:20

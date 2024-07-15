@@ -1,0 +1,33 @@
+<%= form_with(model: ordering) do |form| %>
+  <% if ordering.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ordering.errors.count, "error") %> prohibited this ordering from being saved:</h2>
+
+      <ul>
+        <% ordering.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :customer_id, style: "display: block" %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div>
+    <%= form.label :movie_detail_id, style: "display: block" %>
+    <%= form.select :movie_detail_id, options_for_select(MovieDetail.all.map { |md| [md.title, md.id] }), {prompt: "Select a movie detail"}, {class: "scrollable-select"} %>
+  </div>
+
+  <div>
+    <%= form.label :cinema_placing_id, style: "display: block" %>
+    <%= form.select :cinema_placing_id, options_for_select(CinemaPlacing.all.map { |md| ["#{md.movie_detail.title} (#{md.day_of_week}) - #{md.time.strftime("%-l %P")}", md.id] }), {prompt: "Select a movie detail"}, {class: "scrollable-select"} %>
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

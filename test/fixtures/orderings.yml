@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie_detail: one
+  cinema_placing: one
+
+two:
+  movie_detail: two
+  cinema_placing: two

@@ -1,0 +1,22 @@
+<div id="<%= dom_id cinema_placing %>">
+  <p>
+    <strong>Movie detail:</strong>
+    <%= cinema_placing.movie_detail.title %>
+  </p>
+
+  <p>
+    <strong>Cinema:</strong>
+    <%= cinema_placing.cinema.name %>
+  </p>
+
+  <p>
+    <strong>Day:</strong>
+    <%= cinema_placing.day_of_week %>
+  </p>
+
+  <p>
+    <strong>Time:</strong>
+     <%= cinema_placing.time.strftime("%-l %P") %>
+  </p>
+
+</div>

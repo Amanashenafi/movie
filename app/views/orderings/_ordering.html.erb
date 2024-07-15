@@ -1,0 +1,19 @@
+<div id="<%= dom_id ordering %>">
+  <p>
+    <strong>Customer Phone:</strong>
+    <%= ordering.customer.phone_number %>
+  </p>
+
+  <p>
+    <strong>Movie name:</strong>
+    <%= ordering.movie_detail.title%>
+  </p>
+
+  <p>
+    <strong>Cinema placing:</strong> 
+    <%= ordering.cinema_placing.day_of_week + "," %> 
+    <%= ordering.cinema_placing.time.strftime("%-l %P") %>
+
+  </p>
+
+</div>

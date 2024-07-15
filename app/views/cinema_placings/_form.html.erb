@@ -1,0 +1,38 @@
+<%= form_with(model: cinema_placing) do |form| %>
+  <% if cinema_placing.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cinema_placing.errors.count, "error") %> prohibited this cinema_placing from being saved:</h2>
+
+      <ul>
+        <% cinema_placing.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :movie_detail_id, style: "display: block" %>
+    <%= form.select :movie_detail_id, options_for_select(MovieDetail.all.map { |md| [md.title, md.id] }), {prompt: "Select a movie detail"}, {class: "scrollable-select"} %>
+  </div>
+
+  <div>
+    <%= form.label :cinema_id, style: "display: block" %>
+    <%= form.select :cinema_id, options_for_select(Cinema.all.map { |md| [md.name, md.id] }), {prompt: "Select a Cinema"}, {class: "scrollable-select"} %>
+  </div>
+
+  <div>
+    <%= form.label :day_of_week, style: "display: block" %>
+    <%= form.select :day_of_week, options_for_select(days_of_week_options, @cinema_placing.day_of_week), {prompt: "Select a day"}, {class: "scrollable-select"} %>
+  
+  </div>
+
+  <div>
+    <%= form.label :time, style: "display: block" %>
+    <%= form.time_field :time %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module CinemaPlacingsHelper
+end
